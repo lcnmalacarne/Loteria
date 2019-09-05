@@ -24,7 +24,7 @@ public class Loteria {
             int num = -1;
             while (num == -1) {
                 num = capNum(in, i);
-                for (int j = 0; j < i ; j++) {
+                for (int j = 0; j < i; j++) {
                     if (valores[j] == num) {
                         num = -1;
                     }
@@ -37,19 +37,22 @@ public class Loteria {
         }
         Random R = new Random();
         int[] bolas = new int[]{0, 0, 0, 0, 0, 0};
-        for (int i = 0; i < 10; i++) {
-           int bola = -1;
-           do {
-               bola = (r.nextInt(60)+1);
-               for (int j = 0; j < i; j++) {  
-               if (bolas[j] == bola);
-                  bola = -1;
-                  break;
-               }
-           } while (bola == -1);
+        for (int i = 0; i < 6; i++) {
+            int bola = -1;
+            do {
+                bola = (r.nextInt(60) + 1);
+                for (int j = 0; j < i; j++) {
+                    if (bolas[j] == bola) {
+                        bola = -1;
+                        break;
+                    }
+                }
+            } while (bola == -1);
+            bolas[i] = bola;
         }
-        
+            imprimeVetor(bolas);
     }
+    
 
     public static int capNum(Scanner in, int i) {
         System.out.println("Digite o " + (i + 1) + "° número");
