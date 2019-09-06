@@ -50,9 +50,17 @@ public class Loteria {
             } while (bola == -1);
             bolas[i] = bola;
         }
-            imprimeVetor(bolas);
+        imprimeVetor(bolas);
+        int nmracertos = 0;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (valores[i] == bolas[j]) {
+                    nmracertos++;
+                }
+            }
+        }
+        System.out.println("a quantidade de acertos é "+nmracertos);
     }
-    
 
     public static int capNum(Scanner in, int i) {
         System.out.println("Digite o " + (i + 1) + "° número");
